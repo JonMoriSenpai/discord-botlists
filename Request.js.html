@@ -1,4 +1,42 @@
-const Axios = require('axios').default
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: Request.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="BotLists.html">BotLists</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="BotLists.html#autoPoster">autoPoster</a></li><li><span class="small-icon F">F</span><a href="BotLists.html#poststats">poststats</a></li><li><span class="small-icon F">F</span><a href="BotLists.html#start">start</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#-%253E">-></a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Source: Request.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Axios = require('axios').default
 const Express = require('express')
 const { urlencoded } = require('body-parser')
 const EventEmitter = require('events')
@@ -48,9 +86,9 @@ class BotLists extends EventEmitter {
     this.ipAddress = ipAddress
     this.botlistData = botlistData ?? botlistCache.Botlists
     this.listenerPortNumber =
-      Number.isNaN(listenerPortNumber) &&
-      Number(listenerPortNumber) > 0 &&
-      Number(listenerPortNumber) < 65535
+      Number.isNaN(listenerPortNumber) &amp;&amp;
+      Number(listenerPortNumber) > 0 &amp;&amp;
+      Number(listenerPortNumber) &lt; 65535
         ? 8080
         : Number(listenerPortNumber)
     this.expressApp = Express()
@@ -120,7 +158,7 @@ class BotLists extends EventEmitter {
           const AuthParsingResults = this.#parseAuthorization(request)
 
           // Invalid or Un-Authorized UnHandShake Request from Server to Client Side
-          if (!AuthParsingResults && AuthParsingResults === undefined) {
+          if (!AuthParsingResults &amp;&amp; AuthParsingResults === undefined) {
             this.emit(
               'error',
               'UnAuthoization/Invalid-AuOth Code is Detected',
@@ -135,11 +173,11 @@ class BotLists extends EventEmitter {
           }
 
           /**
-             * if Body went brr.. then Body should be fetched from Stream.<Readable> from request
+             * if Body went brr.. then Body should be fetched from Stream.&lt;Readable> from request
              * Check if any error and send 422 for Incomplete Body
              */
 
-          if (!(request.body && Object.entries(request?.body)?.length > 0)) {
+          if (!(request.body &amp;&amp; Object.entries(request?.body)?.length > 0)) {
             return RawBody(request, {}, (error, actualBody) => {
               if (error)
                 return response.status(422).send({
@@ -213,7 +251,7 @@ class BotLists extends EventEmitter {
    * @param {boolean | void} eventOnPost What if event to be triggered on Post or should be closed
    * @param {Object | void} AxioshttpConfigs To Add Proxies to avoid Ratelimit
    * @param {boolean | void} forcePosting Force Posting and ignoring in-built Ratelimit function | Users can face un-expected ratelimit from API
-   * @returns {Promise<Boolean>} Booelan Response on success or failure
+   * @returns {Promise&lt;Boolean>} Booelan Response on success or failure
    */
 
   async poststats(
@@ -224,12 +262,12 @@ class BotLists extends EventEmitter {
   ) {
     if (
       !(
-        apiBody?.bot_id &&
-        typeof apiBody?.bot_id === 'string' &&
+        apiBody?.bot_id &amp;&amp;
+        typeof apiBody?.bot_id === 'string' &amp;&amp;
         apiBody?.bot_id?.length > 0
       ) ||
-      !(apiBody?.server_count && parseInt(apiBody?.server_count ?? 0) > 0) ||
-      Object.entries(apiBody)?.length <= 1
+      !(apiBody?.server_count &amp;&amp; parseInt(apiBody?.server_count ?? 0) > 0) ||
+      Object.entries(apiBody)?.length &lt;= 1
     )
       return void this.emit(
         'error',
@@ -238,17 +276,17 @@ class BotLists extends EventEmitter {
         new Date(),
       )
     else if (
-      !forcePosting &&
-      this.#postedStatsTimer &&
+      !forcePosting &amp;&amp;
+      this.#postedStatsTimer &amp;&amp;
       Math.abs(new Date().getTime() - this.#postedStatsTimer) >= 30 * 1000
     ) {
       await Utils.sleep(
         Math.abs(new Date().getTime() - this.#postedStatsTimer) + 5 * 1000,
       )
     } else if (
-      !forcePosting &&
-      this.#postedStatsTimer &&
-      Math.abs(new Date().getTime() - this.#postedStatsTimer) < 82 * 1000
+      !forcePosting &amp;&amp;
+      this.#postedStatsTimer &amp;&amp;
+      Math.abs(new Date().getTime() - this.#postedStatsTimer) &lt; 82 * 1000
     ) {
       return void this.emit(
         'error',
@@ -263,20 +301,20 @@ class BotLists extends EventEmitter {
     apiBody = { ...postApiBody, ...apiBody }
     apiBody.server_count = parseInt(apiBody?.server_count ?? 0)
     apiBody.shard_count =
-      apiBody?.shard_count &&
-      typeof apiBody?.shard_count === 'number' &&
+      apiBody?.shard_count &amp;&amp;
+      typeof apiBody?.shard_count === 'number' &amp;&amp;
       parseInt(apiBody?.shard_count) > 0
         ? parseInt(apiBody?.shard_count)
         : undefined
     apiBody.shard_id =
-      apiBody?.shard_id &&
-      typeof apiBody?.shard_id === 'string' &&
+      apiBody?.shard_id &amp;&amp;
+      typeof apiBody?.shard_id === 'string' &amp;&amp;
       apiBody?.shard_id?.length > 0
         ? apiBody?.shard_id
         : undefined
     apiBody.shards =
-      apiBody?.shards &&
-      Array.isArray(apiBody?.shards) &&
+      apiBody?.shards &amp;&amp;
+      Array.isArray(apiBody?.shards) &amp;&amp;
       apiBody?.shards?.length > 0
         ? apiBody?.shards
         : undefined
@@ -306,12 +344,12 @@ class BotLists extends EventEmitter {
   ) {
     if (
       !(
-        apiBody?.bot_id &&
-        typeof apiBody?.bot_id === 'string' &&
+        apiBody?.bot_id &amp;&amp;
+        typeof apiBody?.bot_id === 'string' &amp;&amp;
         apiBody?.bot_id?.length > 0
       ) ||
-      !(apiBody?.server_count && parseInt(apiBody?.server_count ?? 0) > 0) ||
-      Object.entries(apiBody)?.length <= 1
+      !(apiBody?.server_count &amp;&amp; parseInt(apiBody?.server_count ?? 0) > 0) ||
+      Object.entries(apiBody)?.length &lt;= 1
     )
       return void this.emit(
         'error',
@@ -321,10 +359,10 @@ class BotLists extends EventEmitter {
       )
     else if (
       !(
-        Timer &&
-        !Number.isNaN(Timer) &&
-        parseInt(Timer) >= 2 * 60 * 1000 &&
-        parseInt(Timer) <= 24 * 60 * 60 * 1000
+        Timer &amp;&amp;
+        !Number.isNaN(Timer) &amp;&amp;
+        parseInt(Timer) >= 2 * 60 * 1000 &amp;&amp;
+        parseInt(Timer) &lt;= 24 * 60 * 60 * 1000
       )
     ) {
       return void this.emit(
@@ -366,12 +404,12 @@ class BotLists extends EventEmitter {
         error?.message,
         new Date(),
       )
-      if (error.response?.status > 200 && error.response?.status < 429) {
+      if (error.response?.status > 200 &amp;&amp; error.response?.status &lt; 429) {
         this.emit(
           'error',
           `Received Response Status Error | Status Code -> ${
             error?.response?.status
-          } Message from API Server : ${error?.message ?? '<Hidden Message>'}`,
+          } Message from API Server : ${error?.message ?? '&lt;Hidden Message>'}`,
           error?.response?.data ?? error?.message,
           new Date(),
         )
@@ -396,13 +434,13 @@ class BotLists extends EventEmitter {
     })
     this.emit('request', 'Post-Bot-Stats', undefined, AxiosResponse, new Date())
     if (!AxiosResponse) return undefined
-    else if (AxiosResponse?.status > 200 && AxiosResponse?.status < 429) {
+    else if (AxiosResponse?.status > 200 &amp;&amp; AxiosResponse?.status &lt; 429) {
       this.emit(
         'error',
         `Received Response Status Error | Status Code -> ${
           AxiosResponse?.status
         } Message from API Server : ${
-          AxiosResponse?.data?.message ?? '<Hidden Message>'
+          AxiosResponse?.data?.message ?? '&lt;Hidden Message>'
         }`,
         AxiosResponse?.data,
         new Date(),
@@ -424,7 +462,7 @@ class BotLists extends EventEmitter {
           parseInt(AxiosResponse?.data?.retry_after ?? 0) * 1000
         : this.#postedStatsTimer
     } else if (
-      (AxiosResponse?.status === 200 && AxiosResponse?.data) ||
+      (AxiosResponse?.status === 200 &amp;&amp; AxiosResponse?.data) ||
       AxiosResponse?.data?.success ||
       AxiosResponse?.data?.failure
     ) {
@@ -445,16 +483,16 @@ class BotLists extends EventEmitter {
 
   #parseAuthorization(request) {
     let count = 0
-    while (count < CacheObjectkeys.length) {
+    while (count &lt; CacheObjectkeys.length) {
       if (
-        this.botlistData[CacheObjectkeys[count]] &&
+        this.botlistData[CacheObjectkeys[count]] &amp;&amp;
         (this.botlistData[CacheObjectkeys[count]]?.authorizationValue ||
-          this.botlistData[CacheObjectkeys[count]]?.authorizationToken) &&
-        (((this.botlistData[CacheObjectkeys[count]]?.tokenHeadername &&
+          this.botlistData[CacheObjectkeys[count]]?.authorizationToken) &amp;&amp;
+        (((this.botlistData[CacheObjectkeys[count]]?.tokenHeadername &amp;&amp;
           request.get(
             `${this.botlistData[CacheObjectkeys[count]]?.tokenHeadername}`,
           )) ??
-          (botlistCache.Botlists[CacheObjectkeys[count]]?.tokenHeadername &&
+          (botlistCache.Botlists[CacheObjectkeys[count]]?.tokenHeadername &amp;&amp;
             request.get(
               `${
                 botlistCache.Botlists[CacheObjectkeys[count]]?.tokenHeadername
@@ -462,11 +500,11 @@ class BotLists extends EventEmitter {
             )) ??
           request.get('Authorization')) ===
           this.botlistData[CacheObjectkeys[count]]?.authorizationValue ||
-          ((this.botlistData[CacheObjectkeys[count]]?.tokenHeadername &&
+          ((this.botlistData[CacheObjectkeys[count]]?.tokenHeadername &amp;&amp;
             request.get(
               `${this.botlistData[CacheObjectkeys[count]]?.tokenHeadername}`,
             )) ??
-            (botlistCache.Botlists[CacheObjectkeys[count]]?.tokenHeadername &&
+            (botlistCache.Botlists[CacheObjectkeys[count]]?.tokenHeadername &amp;&amp;
               request.get(
                 `${
                   botlistCache.Botlists[CacheObjectkeys[count]]?.tokenHeadername
@@ -483,3 +521,24 @@ class BotLists extends EventEmitter {
 }
 
 module.exports = BotLists
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Jan 23 2022 15:00:00 GMT+0000 (Coordinated Universal Time) using <a href="https://github.com/zyrouge/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="BotLists.html">BotLists</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="BotLists.html#autoPoster">autoPoster</a></li><li><span class="small-icon F">F</span><a href="BotLists.html#poststats">poststats</a></li><li><span class="small-icon F">F</span><a href="BotLists.html#start">start</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#-%253E">-></a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3>discord-botlists 1.0.4</h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><div align="center">
+  <br />
+  <p>
+    <a href="https://github.com/SidisLiveYT/discord-botlists"><img src="https://raw.githubusercontent.com/SidisLiveYT/discord-botlists/main/.github/asserts/logo.svg" width="546" alt="discord-botlists" /></a>
+  </p>
+  <br />
+<p>
+<a href="https://discord.gg/MfME24sJ2a"><img src="https://img.shields.io/discord/795434308005134406?color=5865F2&logo=discord&logoColor=white" alt="Discord server" /></a>
+<a href="https://www.npmjs.com/package/discord-botlists"><img src="https://img.shields.io/npm/v/discord-botlists.svg?maxAge=3600" alt="npm version" /></a>
+<a href="https://www.npmjs.com/package/discord-botlists"><img src="https://img.shields.io/npm/dt/discord-botlists.svg?maxAge=3600" alt="npm downloads" /></a>
+<a href="https://github.com/SidisLiveYT/discord-botlists/actions"><img src="https://github.com/discordjs/discord.js/workflows/Testing/badge.svg" alt="Tests status" /></a>
+</p>
+</div>
+<p>Multi-Discord-Botlist Management Package with 40+ Botlist Supported with Events and Stats Update Methods and More to Add if you want</p>
+<h2>Installation</h2>
+<h3>Install <strong><a href="https://npmjs.com/package/discord-botlists">discord-botlists</a></strong></h3>
+<pre class="prettyprint source lang-sh"><code>$ npm install --save discord-botlists
+</code></pre>
+<h1>Features</h1>
+<ul>
+<li>Upvote/Vote Events Support 🚗</li>
+<li>Stats Posting Feature for Discord Bots to Multiple Botlists</li>
+<li>Better Event Handlers and Request Handlers</li>
+<li>Better Body Parsing for Incomplete request ( HTTP Post Request )</li>
+</ul>
+<h2>Scheme :</h2>
+<pre class="prettyprint source lang-js"><code>// Discord Bot Lists Data from the Client Side to the Official package
+
+/**
+ * &quot;authorizationToken&quot; -> Example Value -> &quot;EyTYRbGciOiJIUasdIFAnR5cCI6IasApXVCJ9.eyJsaLPOsadadw423zMTQzMTM5NTc0NTk4HJKSIsImJvdCI6dad&quot; -> Very Secret Botlist Token and Bot Specific and unique and need to hide for security
+ * &quot;authorizationValue&quot; -> Example Value -> &quot;Discord_Bot_1234OP&quot; -> Self Made jsut to check for vote Webhooks
+ **/
+
+var discordBotlistData = {
+  bladebotlist: {
+    authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,
+    authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;,
+  },
+  topgg: {
+    authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,
+    authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;,
+  },
+  boatspace: {
+    authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,
+    authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;,
+  },
+  botlistme: {
+    authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,
+    authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;,
+  },
+  botrix: {
+    authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,
+    authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;,
+  },
+  discordlabs: {
+    authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,
+    authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;,
+  },
+  //... &quot;authorizationToken&quot; is something secret and important where you had to &quot;regen&quot; in botlist's webhook page . and its quite long like larger than 25 characters at size
+  //... many other botlist data just like above and where &quot;authorizationValue&quot;'s value should be value for &quot;Authorization in HTTP POST request&quot;
+};
+
+// Webhook Scheme
+var webhookEndpoint = &quot;discord-botlists&quot;;
+// It will start accepting get and post request to -> &quot;http://localhost:8080/discord-botlists&quot; , where you can change listener port and ip address for pterodactyl users
+</code></pre>
+<h2>Point to be Noted :</h2>
+<p><strong>Above Object Keys Example from : <a href="https://github.com/SidisLiveYT/discord-botlists/blob/main/src/resources/botlists.json">Bot-List Json File</a></strong></p>
+<h2>Example Code :</h2>
+<pre class="prettyprint source lang-js"><code>const { BotLists } = require(&quot;discord-botlists&quot;);
+
+// webhookEndpoint and discordBotlistData is from above scheme
+const Botlist = new BotLists(
+  &quot;discord-botlists&quot;,
+  discordBotlistData,
+  8080,
+  &quot;127.0.0.1&quot;
+);
+
+// Starting Botlists Vote Event webhook listening
+
+new Promise(async (resolve) => {
+  resolve(
+    await Botlist.start(
+      &quot;discord-botlists&quot;,
+      &quot;https://github.com/SidisLiveYT/discord-botlists&quot;
+    )
+  );
+});
+// Start Accepting vote Events , even the test votes from every Botlists where your webhook url has been saved in their Webhook manage page
+
+Botlist.on(&quot;vote&quot;, (websiteName, jsonBody, timestamp) => {
+  console.log(&quot;Website Name : &quot; + websiteName);
+  console.log(&quot;Vote Json Data : &quot; + jsonBody);
+  console.log(&quot;Date/Time : &quot; + timestamp);
+
+  // ... call back function work here ...
+});
+
+// Botlists to send Bot Stats to multiple botlist at the same time
+
+new Promise(async (resolve) => {
+  resolve(
+    await Botlist.poststats(
+      {
+        bot_id: undefined,
+        server_count: undefined,
+        shards: undefined,
+        shard_id: undefined,
+        shard_count: undefined,
+      },
+      false
+    )
+  );
+});
+// Above Data should replaced with undefined with appropiate data for post request
+
+// OR Post using AutoPoster on every 82 Seconds
+
+var Interval_Id = Botlist.autoPoster(
+  {
+    bot_id: undefined,
+    server_count: undefined,
+    shards: undefined,
+    shard_id: undefined,
+    shard_count: undefined,
+  },
+  10 * 60 * 1000,
+  false
+);
+
+// Posted Event for acknowledment of the Data Stats has been Posted successfully
+Botlist.on(&quot;posted&quot;, (postResponse, timestamp) => {
+  console.log(&quot;HTTP-Post Response : &quot; + postResponse);
+  console.log(&quot;Date/Time : &quot; + timestamp);
+  // ... call back function work here ...
+});
+</code></pre>
+<h2>Links</h2>
+<ul>
+<li><a href="https://github.com/SidisLiveYT/discord-botlists.git">Source Code</a></li>
+<li><a href="https://github.com/SidisLiveYT/discord-botlists">GitHub Repo Link</a></li>
+<li><a href="https://www.npmjs.com/package/discord-botlists">NPM Package</a></li>
+<li><a href="https://yarn.pm/discord-botlists">Yarn Package</a></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Jan 23 2022 15:00:00 GMT+0000 (Coordinated Universal Time) using <a href="https://github.com/zyrouge/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

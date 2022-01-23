@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Class: BotLists</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Classes</h5><ul><li><span class="small-icon C">C</span><b><a href="BotLists.html">BotLists</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="BotLists.html#autoPoster">autoPoster</a></li><li><span class="small-icon F">F</span><a href="BotLists.html#poststats">poststats</a></li><li><span class="small-icon F">F</span><a href="BotLists.html#start">start</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#-%253E">-></a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Class: BotLists</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>BotLists<span class="signature">(webhookEndpoint, botlistData, listenerPortNumber, ipAddress, redirectUrl)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>BotLists -&gt; Botlists Class</p></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="BotLists"><span class="type-signature"></span>new BotLists<span class="signature">(webhookEndpoint, botlistData, listenerPortNumber, ipAddress, redirectUrl)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>webhookEndpoint</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Webhook Endpoint for &quot;https://ipaddress:port/webhookEndpoint&quot; to make selective path for Webhook's HTTP Post Request</p>
+</blockquote></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>botlistData</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Botlists Data as ' { &quot;topgg&quot; : { authorizationToken: &quot;xxx-secrettokenhere-xxx&quot;,authorizationValue: &quot;xxx-selfmade-AuthorizationValue-xxx&quot;, } } ' for comparing fetching token and Json data from resourcess</p>
+</blockquote></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>listenerPortNumber</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        8080
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Port Number for Express's App to listen , By Default it listens in 8080 as default HTTP port</p>
+</blockquote></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>ipAddress</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        localhost
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Ip Adddress as &quot;127.0.0.1&quot; or &quot;www.google.com&quot; | No need to add http or https Protocol , just the domain or IP value for it</p>
+</blockquote></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>redirectUrl</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        https://github.com/SidisLiveYT/discord-botlists
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Redirect Url for get Request on Webhook Post Url for making it more cooler , By Default -&gt; Github Repo</p>
+</blockquote></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Request.js.html">Request.js</a>, <a href="Request.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>EventEmitter</li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="autoPoster"><span class="type-signature"></span>autoPoster<span class="signature">(apiBody, AxioshttpConfigs, Timer, eventOnPost)</span><span class="type-signature"> &rarr; {NodeJS.Timer}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>autoPoster() -&gt; Auto-osting Stats of the Current Bot to Multiple Botlists mentioned</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>apiBody</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">postApiBody</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Api-Body for Posting Data as per params for API requirements and strictly for if required</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>AxioshttpConfigs</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>To Add Proxies to avoid Ratelimit</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>Timer</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">number</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Time in Milli-Seconds to Post at every Interval Gap</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>eventOnPost</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        true
+                    
+                    </td>
+                
+
+                <td class="description last"><p>What if event to be triggered on Post or should be closed</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Request.js.html">Request.js</a>, <a href="Request.js.html#line301">line 301</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Node Timer Id to Cancel for further purposes</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">NodeJS.Timer</span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="poststats"><span class="type-signature">(async) </span>poststats<span class="signature">(apiBody, eventOnPost, AxioshttpConfigs, forcePosting)</span><span class="type-signature"> &rarr; {Promise.&lt;Boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>post() -&gt; Posting Stats of the Current Bot to Multiple Botlists mentioned by</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>apiBody</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">postApiBody</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Api-Body for Posting Data as per params for API requirements and strictly for if required</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>eventOnPost</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        true
+                    
+                    </td>
+                
+
+                <td class="description last"><p>What if event to be triggered on Post or should be closed</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>AxioshttpConfigs</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>To Add Proxies to avoid Ratelimit</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>forcePosting</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Force Posting and ignoring in-built Ratelimit function | Users can face un-expected ratelimit from API</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Request.js.html">Request.js</a>, <a href="Request.js.html#line219">line 219</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Booelan Response on success or failure</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Promise.&lt;Boolean></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="start"><span class="type-signature">(async) </span>start<span class="signature">(webhookEndpoint, redirectUrl, eventTrigger)</span><span class="type-signature"> &rarr; {any}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>start() -&gt; Starting Webhook for Vote Event Trigger</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>webhookEndpoint</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                    </td>
+                
+
+                <td class="description last"><p>Webhook Endpoint for &quot;https://ipaddress:port/webhookEndpoint&quot; to make selective path for Webhook's HTTP Post Request</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>redirectUrl</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        https://github.com/SidisLiveYT/discord-botlists
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Redirect Url for get Request on Webhook Post Url for making it more cooler , By Default -&gt; Github Repo</p>
+</blockquote></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>eventTrigger</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">boolean</span>
+|
+
+<span class="param-type">void</span>
+
+
+                
+                </td>
+
+                
+
+                
+                    <td class="default">
+                    
+                        false
+                    
+                    </td>
+                
+
+                <td class="description last"><blockquote>
+<p>Event Trigger for console.log() function | By Default = false</p>
+</blockquote></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Request.js.html">Request.js</a>, <a href="Request.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Depends on Incomplete Body or Request , it can return false or complete request.body in Json Format</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">any</span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Jan 23 2022 15:00:00 GMT+0000 (Coordinated Universal Time) using <a href="https://github.com/zyrouge/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>
